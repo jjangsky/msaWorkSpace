@@ -12,6 +12,12 @@ spring:
     name: gateway-service
   cloud:
     gateway:
+      default-filters:
+          - name: GolbalFilter
+            args:
+              baseMessage: Spring Gateway Global Filter
+              preLogger: true
+              postLogger: true
       routes:
         - id: first-service
           uri: http://localhost:8083/
@@ -28,5 +34,10 @@ spring:
           filters:
 #            - AddRequestHeader=first-request, first-request-header2
 #            - AddResponseHeader=first-request, first-response-header2
-            - CustomFilter
+            - name: CustomFilter
+            - name: LoggingFilter
+              args:
+                baseMessage: Hi, there.
+                preLogger: true
+                postLogger: true
 
