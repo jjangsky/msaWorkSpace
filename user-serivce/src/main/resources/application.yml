@@ -35,3 +35,6 @@ eureka:
 greeting:
   message: Custom Welcome to the E-commerce.
 
+token:
+  expiration_time: 86400000
+  secret: user_token_test_eco_dbcksrla_test_123
