@@ -23,6 +23,7 @@ spring:
 #          uri: lb://USER-SERVICE
 #          predicates:
 #            - Path=/user-service/**
+        # 로그인 필요 없는 서비스
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
@@ -40,6 +41,7 @@ spring:
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+      # 여기서부터는 로그인 필요한 서비스들
         - id: user-service
           uri: lb://USER-SERVICE
           predicates:
@@ -48,6 +50,7 @@ spring:
           filters:
             - RemoveRequestHeader=Cookie
             - RewritePath=/user-service/(?<segment>.*), /$\{segment}
+            - AuthorizationHeaderFilter
         - id: catalog-service
           uri: lb://CATALOG-SERVICE
           predicates:
@@ -78,3 +81,6 @@ spring:
                 preLogger: true
                 postLogger: true
 
+
+token:
+  secret: user_token_test_eco_dbcksrla_test_123
