@@ -14,6 +14,7 @@ spring:
       server:
         git:
           uri: file:///C://localRepo
+          default-label: master
 management:
   endpoints:
     web:
