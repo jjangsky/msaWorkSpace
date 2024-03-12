@@ -1,0 +1,6 @@
+encrypt:
+  key: twqewojpgewstqew86486468458
+#  key-store:
+#    location: file:///C://msaWorkSpace//keystore/apiEncryptionKey.jks
+#    password: test1234
+#    alias: apiEncryptionKey

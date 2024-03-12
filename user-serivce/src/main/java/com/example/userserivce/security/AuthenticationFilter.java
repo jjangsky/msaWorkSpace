@@ -62,6 +62,7 @@ public class AuthenticationFilter extends UsernamePasswordAuthenticationFilter {
         byte[] secretKeyBytes = Base64.getEncoder().encode(environment.getProperty("token.secret").getBytes());
 
         SecretKey secretKey = Keys.hmacShaKeyFor(secretKeyBytes);
+        System.out.println(secretKey);
 
         Instant now = Instant.now();
 
