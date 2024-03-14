@@ -1,5 +1,6 @@
 package com.example.userserivce;
 
+import com.example.userserivce.error.FeignErrorDecoder;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -35,5 +36,10 @@ public class UserSerivceApplication {
     public RestTemplate getRestTemplate(){
         return new RestTemplate();
     }
+
+//    @Bean
+//    public FeignErrorDecoder getFeignErrorDecoder(){
+//        return new FeignErrorDecoder();
+//    }
 
 }
